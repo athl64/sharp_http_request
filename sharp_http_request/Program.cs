@@ -20,10 +20,10 @@ namespace sharp_http_request
                 mode = args[0];
             }
 
-            Console.Write("Wallbase.cc random wallpaper downloader\n\rby Dvixi :)\n\r");
+            Console.Write("Wallbase.cc random wallpaper downloader\n\rby Dvixi :)\n\rLaunch parameters:\r\nquiet - close without confirmation\r\nhttp://dvixi.in.ua\r\n");
 
             sharp_request req = new sharp_request();
-            string response = req.getR("http://wallbase.cc/random?section=wallpapers&q=woman&res_opt=eqeq&res=1920x1080&thpp=60");
+            string response = req.getR("http://wallbase.cc/search?section=wallpapers&q=abstract&res_opt=eqeq&res=1920x1080&thpp=60");
 
             List<string> lisp = req.parse(response);
 

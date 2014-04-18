@@ -65,16 +65,17 @@ namespace sharp_http_request
             //URL = just number
             WebClient cl = new WebClient();
             byte[] tmp;
+            string mypics = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
-            if (!System.IO.Directory.Exists("wallbase")) System.IO.Directory.CreateDirectory("wallbase");
+            if (!System.IO.Directory.Exists(mypics + "\\wallbase")) System.IO.Directory.CreateDirectory(mypics + "\\wallbase");
 
             cl.Headers.Add("user-agent", "testing requester");
 
             try
             {
                 tmp = cl.DownloadData("http://wallpapers.wallbase.cc/rozne/wallpaper-" + URL + ".jpg");
-                
-                File.WriteAllBytes("wallbase\\wallbase-" + URL + ".jpg", tmp);
+
+                File.WriteAllBytes(mypics + "\\wallbase\\wallbase-" + URL + ".jpg", tmp);
             }
             catch (WebException e)
             {
